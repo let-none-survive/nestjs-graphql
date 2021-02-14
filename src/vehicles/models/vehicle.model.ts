@@ -1,6 +1,6 @@
-import { Field, ID, Int, ObjectType, } from '@nestjs/graphql';
+import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 
-@ObjectType() 
+@ObjectType()
 export class Vehicle {
   @Field(type => ID)
   id: string;
@@ -11,7 +11,7 @@ export class Vehicle {
   @Field()
   brand: string;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   creationDate: Date;
 
   @Field(type => Int)

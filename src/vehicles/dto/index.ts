@@ -1,7 +1,4 @@
-import { NewVehicleInput } from './new-vehicle.input'
-import { VehiclesArgs } from './vehicle.args'
+import { NewVehicleInput } from './new-vehicle.input';
+import { VehiclesArgs } from './vehicle.args';
 
-export {
-  NewVehicleInput,
-  VehiclesArgs
-}
+export { NewVehicleInput, VehiclesArgs };

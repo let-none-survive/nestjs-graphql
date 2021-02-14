@@ -10,7 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       autoSchemaFile: 'schema.gql',
     }),
     VehiclesModule,
-    MongooseModule.forRoot('mongodb://localhost/vehicles')
+    MongooseModule.forRoot('mongodb://localhost/vehicles'),
   ],
 })
 export class AppModule {}

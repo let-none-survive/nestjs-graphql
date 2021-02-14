@@ -3,16 +3,19 @@ import { DateScalar } from 'src/common/scalars/date.scalar';
 import { VehicleService } from './vehicle.service';
 import { VehicleResolver } from './vehicles.resolver';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Vehicle, VehicleSchema } from './schemas/vehicle.schema'
+import { Vehicle, VehicleSchema } from './schemas/vehicle.schema';
 import { LoggingPlugin } from 'src/common/plugins/loggin.plugin';
 import { ComplexityPlugin } from 'src/common/plugins/complexity.plugin';
 
 @Module({
-  imports: [MongooseModule.forFeature([
-    {
-      name: Vehicle.name, schema: VehicleSchema
-    }
-  ])],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: Vehicle.name,
+        schema: VehicleSchema,
+      },
+    ]),
+  ],
   providers: [
     VehicleResolver,
     VehicleService,
@@ -21,4 +24,4 @@ import { ComplexityPlugin } from 'src/common/plugins/complexity.plugin';
     // ComplexityPlugin,
   ],
 })
-export class VehiclesModule { }
+export class VehiclesModule {}

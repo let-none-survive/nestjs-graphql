@@ -12,7 +12,7 @@ export class Vehicle {
   brand: string;
 
   @Prop()
-  creationDate?: Date
+  creationDate?: Date;
 
   @Prop({ required: true })
   price: number;

@@ -11,7 +11,7 @@ export class NewVehicleInput {
   @MaxLength(30)
   brand: string;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   creationDate?: Date;
 
   @Field(type => Int)

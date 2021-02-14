@@ -1,9 +1,9 @@
 import { NotFoundException, Res } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { PubSub } from 'apollo-server-express';
-import { Vehicle } from './models/vehicle.model'
-import { VehicleService } from './vehicle.service'
-import { NewVehicleInput, VehiclesArgs } from './dto'
+import { Vehicle } from './models/vehicle.model';
+import { VehicleService } from './vehicle.service';
+import { NewVehicleInput, VehiclesArgs } from './dto';
 
 const pubSub = new PubSub();
 
@@ -13,7 +13,7 @@ export class VehicleResolver {
 
   @Query(returns => Vehicle)
   async vehicle(@Args('id') id: string) {
-    const vehicle = await this.vehicleService.findOneById(id)
+    const vehicle = await this.vehicleService.findOneById(id);
     if (!vehicle) {
       throw new NotFoundException(id);
     }
@@ -29,7 +29,7 @@ export class VehicleResolver {
   async addVehicle(@Args('newVehicleData') newVehicleData: NewVehicleInput) {
     const vehicle = await this.vehicleService.create(newVehicleData);
     pubSub.publish('vehicleAdded', { vehicleAdded: vehicle });
-    return vehicle; 
+    return vehicle;
   }
 
   @Mutation(returns => Boolean)
@@ -41,5 +41,4 @@ export class VehicleResolver {
   vehicleAdded() {
     return pubSub.asyncIterator('vehicleAdded');
   }
-
 }
