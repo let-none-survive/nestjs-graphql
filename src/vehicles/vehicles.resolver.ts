@@ -8,7 +8,7 @@ import { NewVehicleInput, VehiclesArgs } from './dto'
 const pubSub = new PubSub();
 
 @Resolver(of => Vehicle)
-export class VehicleResulver {
+export class VehicleResolver {
   constructor(private readonly vehicleService: VehicleService) {}
 
   @Query(returns => Vehicle)
